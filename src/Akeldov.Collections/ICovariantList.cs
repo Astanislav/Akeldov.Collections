@@ -6,7 +6,7 @@ namespace Akeldov.Collections
     {
         int Count { get; }
 
-        T Get(int index);
+        T this[int index] { get; }
 
         void Shuffle();
 
