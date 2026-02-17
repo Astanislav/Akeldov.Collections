@@ -54,8 +54,7 @@ namespace Akeldov.Collections
 
         public IEnumerator<T> GetEnumerator()
         {
-            for (int i = 0; i < _items.Count; i++)
-                yield return _items[i];
+            return new CovariantListEnumerator<T>(_items);
         }
 
         IEnumerator IEnumerable.GetEnumerator()
