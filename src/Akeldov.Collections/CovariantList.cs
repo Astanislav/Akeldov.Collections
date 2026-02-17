@@ -5,7 +5,7 @@ namespace Akeldov.Collections
 {
     public class CovariantList<T> : ICovariantList<T>
     {
-        public List<T> _items;
+        internal List<T> _items;
 
         public CovariantList()
         {
