@@ -7,11 +7,5 @@ namespace Akeldov.Collections
         int Count { get; }
 
         T this[int index] { get; }
-
-        void Shuffle();
-
-        void Reverse();
-
-        ICovariantList<T> Copy();
     }
 }

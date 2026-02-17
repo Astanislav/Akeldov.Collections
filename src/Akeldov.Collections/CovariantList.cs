@@ -1,14 +1,11 @@
-﻿using System;
-using System.Collections;
+﻿using System.Collections;
 using System.Collections.Generic;
 
 namespace Akeldov.Collections
 {
     public class CovariantList<T> : ICovariantList<T>
     {
-        internal List<T> _items;
-
-        private static Random rng = new Random();
+        public List<T> _items;
 
         public CovariantList()
         {
@@ -42,8 +39,6 @@ namespace Akeldov.Collections
 
         public int Count => _items.Count;
 
-        public T Get(int index) => _items[index];
-
         public void Add(T item) => _items.Add(item);
 
         public void Remove(T item)
@@ -66,38 +61,6 @@ namespace Akeldov.Collections
         IEnumerator IEnumerable.GetEnumerator()
         {
             return GetEnumerator();
-        }
-
-        public CovariantList<T> Copy()
-        {
-            var res = new CovariantList<T>();
-
-            foreach (var item in this._items)
-            {
-                res.Add(item);
-            }
-
-            return res;
-        }
-
-        public void Shuffle()
-        {
-            int n = _items.Count;
-            for (int i = n - 1; i > 0; i--)
-            {
-                int j = rng.Next(i + 1);
-                (_items[i], _items[j]) = (_items[j], _items[i]);
-            }
-        }
-
-        public void Reverse()
-        {
-            _items.Reverse();
-        }
-
-        ICovariantList<T> ICovariantList<T>.Copy()
-        {
-            return Copy();
         }
 
         public static implicit operator List<T>(CovariantList<T> covariantList)
